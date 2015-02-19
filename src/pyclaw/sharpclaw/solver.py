@@ -293,6 +293,8 @@ class SharpClawSolver(Solver):
             elif self.time_integrator=='SSP104':
                 state.q = self.ssp104(state)
 
+            elif self.time_integrator=='SDC':
+                print "SDC is currently under construction..."
 
             elif self.time_integrator=='RK':
                 # General RK with specified coefficients
@@ -545,6 +547,7 @@ class SharpClawSolver(Solver):
         elif self.time_integrator == 'RK':      nregisters=len(self.b)+1
         elif self.time_integrator == 'SSPMS32': nregisters=3
         elif self.time_integrator == 'SSPMS43': nregisters=4
+        elif self.time_integrator == 'SDC' :    nregisters=4 #@todo: This has to be corrected.
         elif self.time_integrator == 'LMM':
             nregisters=len(self.alpha)
             self.dt_variable = False
